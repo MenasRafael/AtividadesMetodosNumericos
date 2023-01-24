@@ -41,7 +41,7 @@ def quest1():
 
 #QUESTAO 2.1
 def quest2_1():
-    printFile = 'tabelas/T2.1-Tabela.txt'
+    printFile = 'T2.1-Tabela.txt'
     fig, ax = plt.subplots() 
 
     # Definindo o número de passos minimo
@@ -69,15 +69,12 @@ def quest2_1():
         # Reiniciando os valores para um novo valor de tamanho de passo
         t_inicial = 0 # Valor inicial do passo no eixo das abcissas
         y_numerico = y_inicial # Valor inicial do y_numerico na extremidade inferior [a, ...]
-        # plt.ylim(0, 0.6)
-        # plt.xlim(0, 0.06)
         # Laço interno para calcular o valor do y númerico para cada valor de n
         for j in range(n[i]):
             # y_linha é a derivada obtida pela equação diferencial
             y_linha = 2*np.pi*np.cos(2*np.pi*t_inicial)*np.exp(-0.2*t_inicial)-0.2*(np.sin(2*np.pi*t_inicial)*np.exp(-0.2*t_inicial))
             y_numerico += h[i] * y_linha
             t_inicial += h[i]
-            # print(f'dale'+f'{j}')
             if(n[i]==64):
                 ax.plot(t_inicial, y_numerico, 'b.')  
             elif(n[i]==256):
@@ -104,7 +101,7 @@ def quest2_1():
 
 #QUESTAO 2.2
 def quest2_2():
-    printFile = 'tabelas/T2.2-Tabela.txt'
+    printFile = 'T2.2-Tabela.txt'
 
     fig, ax = plt.subplots() 
 
@@ -177,7 +174,7 @@ def quest2_2():
 
 #QUESTAO 2.3
 def quest2_3():
-    printFile = 'tabelas/T2.3-Tabela.txt'
+    printFile = 'T2.3-Tabela.txt'
     fig, ax = plt.subplots() 
 
      # Definindo o número de passos minimo
@@ -234,7 +231,7 @@ def quest2_3():
         y_real = t_final*np.exp(t_final)
         x_real = 2*t_final*np.exp(t_final) + np.exp(t_final)
         
-        # Aplicando a norma do máximo para apresentar o erro encontrado
+        # Aplicando a norma euclidiana para apresentar o erro encontrado
         erros[i] = np.sqrt((x_real - x_numerico) ** 2 + (y_real - y_numerico) ** 2)
             
     for i in range(len(n)-1):
@@ -267,7 +264,6 @@ def imprimirTabela(n, h, erros, ordemP, caminho):
 
 #Function main utilizada para unir o fluxo de dados da resolução das questões para o usuário.
 def main():
-
     control = '1'
 
     while control == '1':
@@ -291,8 +287,6 @@ def main():
         
         print('Voce deseja testar outra das funcionalidades? Digite: 1 para sim e 0 para nao!')
         
-        control = input('Opção selecionada:')
+        control = input('Opção selecionada: ')
     
-    
-        
 main()
